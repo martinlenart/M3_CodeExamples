@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace M3_CodeExamples
+namespace SharesOwned
 {
     public class Stock
     {
@@ -30,7 +30,7 @@ namespace M3_CodeExamples
             {
                 return $"Aktie {Name} har pris {CurrentPrice}.  Jag har {SharesOwned} aktier till ett värde {Worth}";
             }
-         }
+        }
 
     }
     class Program
