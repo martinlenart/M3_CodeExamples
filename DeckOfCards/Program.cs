@@ -35,6 +35,33 @@ namespace DeckOfCards
 				return $"{Value} of {Color}, a {BlackOrRed} card";
 			}
 		}
+
+		public PlayingCard() { }
+		public PlayingCard (bool HigestOrLowest)
+		{ 
+			if (HigestOrLowest)
+            {
+				Color = PlayingCardColor.Spades;
+				Value = PlayingCardValue.Ace;
+            }
+			else
+            {
+				Color = PlayingCardColor.Clubs;
+				Value = PlayingCardValue.Two;
+            }
+		}
+		public PlayingCard(bool HigestOrLowest, PlayingCardColor Color)
+		{
+			this.Color = Color;
+			if (HigestOrLowest)
+			{
+				Value = PlayingCardValue.Ace;
+			}
+			else
+			{
+				Value = PlayingCardValue.Two;
+			}
+		}
 	}
 	class Program
     {

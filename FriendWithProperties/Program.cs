@@ -44,3 +44,9 @@ namespace FriendWithProperties
         }
     }
 }
+//Group Exercise
+//1.	Create a constructor to Friend that takes one parameter, BestFriend, of type bool.
+//      if BestFriend is true, Name, PhoneNr, Level and BirthDay should be initialized to your best friend
+//2.    Create a constructor that takes one parameter, Level, of type FriendLevel. In the Constructor
+//      use a switch-case construct to initialize  Name, PhoneNr, Level and BirthDay of a person you know
+//      of that particular FriendLevel
