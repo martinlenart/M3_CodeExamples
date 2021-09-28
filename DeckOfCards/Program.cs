@@ -69,8 +69,14 @@ namespace DeckOfCards
         {
 			PlayingCard card1 = new PlayingCard { Color = PlayingCardColor.Clubs, Value = PlayingCardValue.Queen };
             Console.WriteLine(card1.StringToPrint);
-        }
-    }
+
+			PlayingCard card2 = new PlayingCard(true);
+			Console.WriteLine(card2.StringToPrint);
+
+			PlayingCard card3 = new PlayingCard(false, PlayingCardColor.Clubs);
+			Console.WriteLine(card3.StringToPrint);
+		}
+	}
 }
 //Group Exercise1
 //1.	Modify PlayingCard so the Data Members Color and Value becomes properties that can be read by all users of the type but only set during initialization
