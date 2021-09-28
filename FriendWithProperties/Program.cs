@@ -44,7 +44,10 @@ namespace FriendWithProperties
 
             //Exercise 1
             Friend myBestFriend = new Friend(FriendLevel.BestFriend);
+            Console.WriteLine(myBestFriend.Name);
+
             Friend aFamilyMember = new Friend(FriendLevel.Family);
+            Console.WriteLine(aFamilyMember.Name);
         }
     }
 }
