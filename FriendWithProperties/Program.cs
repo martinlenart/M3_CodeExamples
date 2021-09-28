@@ -4,7 +4,7 @@ namespace FriendWithProperties
 {
     public enum FriendLevel
     {
-        Normal, Good, Family, BestFriend 
+        Friend, ClassMate, Family, BestFriend 
     }
     public class Friend
     {
@@ -39,14 +39,16 @@ namespace FriendWithProperties
             friend1.Name = "Mary";
             Console.WriteLine(friend1.Name);
 
-            friend1.Name = null;    //Exception
-            friend1.Name = "";      //Exception
+            //friend1.Name = null;    //Exception
+            //friend1.Name = "";      //Exception
+
+            //Exercise 1
+            Friend myBestFriend = new Friend(FriendLevel.BestFriend);
+            Friend aFamilyMember = new Friend(FriendLevel.Family);
         }
     }
 }
 //Group Exercise
-//1.	Create a constructor to Friend that takes one parameter, BestFriend, of type bool.
-//      if BestFriend is true, Name, PhoneNr, Level and BirthDay should be initialized to your best friend
-//2.    Create a constructor that takes one parameter, Level, of type FriendLevel. In the Constructor
+//1.    Create a constructor that takes one parameter, Level, of type FriendLevel. In the Constructor
 //      use a switch-case construct to initialize  Name, PhoneNr, Level and BirthDay of a person you know
 //      of that particular FriendLevel
