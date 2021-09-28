@@ -8,7 +8,18 @@ namespace FriendWithProperties
     }
     public class Friend
     {
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (value != null && value != "")
+                    _name = value;
+                else
+                    throw new Exception("Felaktigt namn");
+            }
+        }
         public string PhoneNr { get; set; }
         public FriendLevel Level { get; init; }
         public DateTime BirthDay { get; init; }
@@ -24,6 +35,12 @@ namespace FriendWithProperties
                 BirthDay = DateTime.Parse("1990-01-01"),
                 Level = FriendLevel.BestFriend
             };
+
+            friend1.Name = "Mary";
+            Console.WriteLine(friend1.Name);
+
+            friend1.Name = null;    //Exception
+            friend1.Name = "";      //Exception
         }
     }
 }
