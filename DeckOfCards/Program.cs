@@ -11,7 +11,7 @@ namespace DeckOfCards
 		Two = 2, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
 		Knight, Queen, King, Ace                // Poker Value order
 	}
-	public struct PlayingCard
+	public class PlayingCard
 	{
 		public PlayingCardColor Color { get; init; }
 		public PlayingCardValue Value { get; init; }
