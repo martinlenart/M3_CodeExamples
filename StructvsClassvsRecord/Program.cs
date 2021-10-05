@@ -42,7 +42,7 @@ namespace StructvsClassvsRecord
             myClassDeepCopied.myInt = 5;
 
             //myRecord.myInt = 5; //Cannot change it as it is immutable
-            recordA myRecordDeepCopied = myRecord with { myInt = 5 };  // Simple to make deep copy on record
+            recordA myRecordDeepCopied = myRecord with { myInt = 5 };  // Simple to make deep copy on record with some modifications
         }
     }
 }
