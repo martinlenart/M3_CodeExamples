@@ -25,6 +25,11 @@ namespace ConsoleUserInput
                 Console.WriteLine($"\nPlaying round nr {round + 1}");
                 Console.WriteLine($"------------------");
 
+                PlayGame = TryReadNumber(out int myNumber);
+                if (!PlayGame)
+                    break;
+
+
                 OnePartOfGame();
                 AnotherPartOfGame();
                 
