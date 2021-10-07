@@ -28,7 +28,7 @@ namespace GuessANumber
                 Console.WriteLine($"\nPlaying round nr {round + 1}");
                 Console.WriteLine($"------------------");
 
-                PlayGame = TryReadNumber(out int myGuess);
+                PlayGame = TryReadGuess(out int myGuess);
                 if (!PlayGame)
                     break;
 
@@ -42,7 +42,7 @@ namespace GuessANumber
                 round++;
             }
 
-            if (!correctGuess)
+            if (round > 0 && !correctGuess)
             {
                 Console.WriteLine($"\n{playerName}, Sorry you could not guess the number, which was {secretNumber}");
             }
@@ -83,15 +83,15 @@ namespace GuessANumber
             while ((sInput != "Q" && sInput != "q"));
             return false;
         }
-        private static bool TryReadNumber(out int Number)
+        private static bool TryReadGuess(out int Guess)
         {
-            Number = 0;
+            Guess = 0;
             string sInput;
             do
             {
                 Console.WriteLine("Enter a number (1-10 or Q to quit)?");
                 sInput = Console.ReadLine();
-                if (int.TryParse(sInput, out Number) && Number >= 1 && Number <= 10)
+                if (int.TryParse(sInput, out Guess) && Guess >= 1 && Guess <= 10)
                 {
                     return true;
                 }
