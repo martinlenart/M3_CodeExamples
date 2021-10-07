@@ -4,9 +4,9 @@ namespace ChefHerititage
 {
     public class Chef
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "Boring";
         public int Age = 0;
-        public virtual string Hello => "I'm busy!";
+        public virtual string Hello => "I'm boring!";
 
         public virtual string FavoriteDish => "I have none";
     }
@@ -44,31 +44,69 @@ namespace ChefHerititage
             FrenchChef french = new FrenchChef { Name = "Jean-Pierre" };
             ItalianChef italian = new ItalianChef { Name = "Mario" };
             SwedishChef swedish = new SwedishChef { Name = "Pelle" };
+            Chef boring = new Chef { };
 
             Console.WriteLine(french.Hello);
             Console.WriteLine(italian.Hello);
             Console.WriteLine(swedish.Hello);
+            Console.WriteLine(boring.Hello);
 
 
-            Chef anyChef = new Chef { };
             Chef chef1 = new FrenchChef { Name = "Jean-Pierre" };
             FrenchChef french3 = new FrenchChef { Name = "Jean-Pierre" };
 
-
-            Console.WriteLine("\nFavorite Dishes");
-            MyFavoriteDish(new FrenchChef { Name = "Jean-Pierre" });
-            MyFavoriteDish(new ItalianChef { Name = "Mario" });
-            MyFavoriteDish(new SwedishChef { Name = "Pelle" });
-            MyFavoriteDish(new Chef {});
-
             //FrenchChef french3 = (FrenchChef) new Chef { };     // Error
             //Console.WriteLine(french3.Hello);
+
+            Console.WriteLine("\nFavorite Dishes");
+            MyFavoriteDish(french);
+            MyFavoriteDish(italian);
+            MyFavoriteDish(swedish);
+            
+            MyFavoriteDish(boring);
+
 
         }
 
         public static void MyFavoriteDish(Chef myChef)
         {
-            Console.WriteLine($"Hi, I'm {myChef.Name} and my favorite dish is {myChef.FavoriteDish}");
+            Console.WriteLine($"\nHi, I'm {myChef.Name} and my favorite dish is {myChef.FavoriteDish}");
+
+            //This is valid for all children as a child is a Parent => Italian, French, Swedish chefs are all Chefs!
+            if (myChef is Chef)
+            {
+                Console.WriteLine($"All chefs are indeed chefs");
+            }
+
+            //using "is" to identifyFrench chefs
+            if (myChef is FrenchChef fc)
+            {
+                Console.WriteLine($"Viva La France {fc.Hello}!");
+            }
+
+            //using "as" to identify Italian chefs
+            ItalianChef ic = myChef as ItalianChef;
+            if (ic != null)
+            {
+                Console.WriteLine($"Salve {ic.Hello}!");
+            }
+
+            //using "as" to identify non Italian chefs
+            ItalianChef nic = myChef as ItalianChef;
+            if (nic == null)
+            {
+                Console.WriteLine("Non Italian");
+            }
+
+            //Write the Type of Chef regardlessif it is Chef, Italian, French, or Swedish
+            Type myType = myChef.GetType();
+            Console.WriteLine(myType.Name);
+
+            //Only Chef and not a child
+            if (myChef.GetType() == typeof(Chef))
+            {
+                Console.WriteLine("Only Chef and not French, Italian or Swedish");
+            }
         }
 
         public static void SayHello (Chef myChef)
