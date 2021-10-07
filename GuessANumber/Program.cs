@@ -1,23 +1,26 @@
 ﻿using System;
 
-namespace ConsoleUserInput
+namespace GuessANumber
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            Console.WriteLine($"\nLet's get some user input and play some game rounds:");
+            Console.WriteLine($"\nLet's play guess-a-secret-number:");
 
             string playerName = null;
             int nrRounds = 0;
             bool PlayGame = TryReadName(out playerName) &&
                             TryReadNrOfRounds(out nrRounds);
-            
+
             if (PlayGame)
             {
                 Console.WriteLine($"Hello {playerName}, lets play {nrRounds} rounds");
             }
+
+            bool correctGuess = false;
+            int secretNumber = new Random().Next(1, 11);
             
             int round = 0;
             while (PlayGame && round < nrRounds)
@@ -25,21 +28,23 @@ namespace ConsoleUserInput
                 Console.WriteLine($"\nPlaying round nr {round + 1}");
                 Console.WriteLine($"------------------");
 
-                PlayGame = TryReadNumber(out int myNumber);
+                PlayGame = TryReadNumber(out int myGuess);
                 if (!PlayGame)
                     break;
 
-                Console.WriteLine($"You entered {myNumber}");
+                correctGuess = CorrectGuess(secretNumber, myGuess);
+                if (correctGuess)
+                {
+                    PlayGame = !correctGuess;
+                    Console.WriteLine($"You guessed the number in {round+1} tries");
+                }
 
-                OnePartOfGame();
-                AnotherPartOfGame();
-                
                 round++;
             }
 
-            if (nrRounds > 0)
+            if (!correctGuess)
             {
-                Console.WriteLine($"\n{playerName}, this was great, wasn't it?");
+                Console.WriteLine($"\n{playerName}, Sorry you could not guess the number, which was {secretNumber}");
             }
         }
 
@@ -101,13 +106,22 @@ namespace ConsoleUserInput
         #endregion
 
         #region Game Playing
-        public static void OnePartOfGame()
+        public static bool CorrectGuess(int secretNr, int myGuess)
         {
-            Console.WriteLine($"I am now playing one part of the game...");
-        }
-        public static void AnotherPartOfGame()
-        {
-            Console.WriteLine($"I am now playing another part of the game...");
+            if (secretNr < myGuess)
+            {
+                Console.WriteLine($"Secret number is smaller than yours");
+                return false;
+            }
+
+            if (secretNr > myGuess)
+            {
+                Console.WriteLine($"Secret number is larger than yours");
+                return false;
+            }
+ 
+            Console.WriteLine($"You guessed the right number");
+            return true;
         }
         #endregion
     }
