@@ -8,12 +8,13 @@ namespace ChefHerititage
         public int Age = 0;
         public virtual string Hello => "I'm busy!";
 
-        public string FavoriteDish => "I have none";
+        public virtual string FavoriteDish => "I have none";
     }
     public class FrenchChef : Chef
     {
         public new int Age;
         public override string Hello => "Bonjour";
+        public override string FavoriteDish => "Escargot";
         public override string ToString() => $"{Hello} my name is {Name}";
 
         public int Salary;
@@ -27,11 +28,13 @@ namespace ChefHerititage
     public class ItalianChef : Chef
     {
         public override string Hello => "Ciao";
+        public override string FavoriteDish => "Pizza";
         public override string ToString() => $"{Hello} my name is {Name}";
     }
     public class SwedishChef : Chef
     {
         public override string Hello => "Hej";
+        public override string FavoriteDish => "Meatballs";
         public override string ToString() => $"{Hello} my name is {Name}";
     }
     class Program
@@ -46,14 +49,17 @@ namespace ChefHerititage
             Console.WriteLine(italian.Hello);
             Console.WriteLine(swedish.Hello);
 
-            Console.WriteLine();
 
             Chef anyChef = new Chef { };
             Chef chef1 = new FrenchChef { Name = "Jean-Pierre" };
             FrenchChef french3 = new FrenchChef { Name = "Jean-Pierre" };
-            
-            SayHello(chef1);
-            MyFavoriteDish(chef1);
+
+
+            Console.WriteLine("\nFavorite Dishes");
+            MyFavoriteDish(new FrenchChef { Name = "Jean-Pierre" });
+            MyFavoriteDish(new ItalianChef { Name = "Mario" });
+            MyFavoriteDish(new SwedishChef { Name = "Pelle" });
+            MyFavoriteDish(new Chef {});
 
             //FrenchChef french3 = (FrenchChef) new Chef { };     // Error
             //Console.WriteLine(french3.Hello);
@@ -62,7 +68,7 @@ namespace ChefHerititage
 
         public static void MyFavoriteDish(Chef myChef)
         {
-            Console.WriteLine(myChef.Hello);
+            Console.WriteLine($"Hi, I'm {myChef.Name} and my favorite dish is {myChef.FavoriteDish}");
         }
 
         public static void SayHello (Chef myChef)
