@@ -81,8 +81,14 @@ namespace ChefHerititage
             //If no pattern is matched write
             // "Vet inte vilken kock"
 
-            string sRet = myChef switch 
-            { }
+            string sRet = myChef switch
+            {
+                ItalianChef => "Italienst kock ",
+                FrenchChef => "Fransk kock ",
+                SwedishChef { FavoriteDish: "Meatballs" } => "Typisk Svensk",
+                SwedishChef => "Svensk kock ",
+                _ => "Vet inte vilken kock"
+            };
 
             return sRet;
         }
