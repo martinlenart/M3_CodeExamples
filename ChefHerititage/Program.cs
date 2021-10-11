@@ -2,7 +2,7 @@
 
 namespace ChefHerititage
 {
-    public class Chef
+    public abstract class Chef
     {
         public string Name { get; set; } = "Boring";
         public int Age = 0;
@@ -25,7 +25,7 @@ namespace ChefHerititage
             this.Age = 20;
         }
     }
-    public class ItalianChef : Chef
+    public sealed class ItalianChef : Chef
     {
         public override string Hello => "Ciao";
         public override string FavoriteDish => "Pizza";
@@ -44,12 +44,12 @@ namespace ChefHerititage
             FrenchChef french = new FrenchChef { Name = "Jean-Pierre" };
             ItalianChef italian = new ItalianChef { Name = "Mario" };
             SwedishChef swedish = new SwedishChef { Name = "Pelle" };
-            Chef boring = new Chef { };
+           // Chef boring = new Chef { };
 
             Console.WriteLine(french.Hello);
             Console.WriteLine(italian.Hello);
             Console.WriteLine(swedish.Hello);
-            Console.WriteLine(boring.Hello);
+            //Console.WriteLine(boring.Hello);
 
 
             Chef chef1 = new FrenchChef { Name = "Jean-Pierre" };
@@ -63,9 +63,28 @@ namespace ChefHerititage
             MyFavoriteDish(italian);
             MyFavoriteDish(swedish);
             
-            MyFavoriteDish(boring);
+           // MyFavoriteDish(boring);
 
 
+        }
+
+        public static string Iam (Chef myChef)
+        {
+            //Use a switch expression with type pattern to write
+            // "Italiensk kock" if ItalianChef
+            // "Fransk kock" if FrenchChef
+            // "Svensk kock " if SwedishChef
+
+            //Use type pattern with property to write
+            // "Typisk Svensk kock" if SwedishChef and FavoriteDish is "Meatballs"
+
+            //If no pattern is matched write
+            // "Vet inte vilken kock"
+
+            string sRet = myChef switch 
+            { }
+
+            return sRet;
         }
 
         public static void MyFavoriteDish(Chef myChef)
