@@ -53,13 +53,6 @@
                                       new Chef[] {new SwedishChef()}};
         static void Main(string[] args)
         {
-            //1. Loop through dotMatrix and printout the matrix. Red slice, Green slice, Blue slice
-            //2. Count the number of White Dots.
-            //3. Replace the White dots with Pink dots 
-
-            //4. Loop through chefMatrix and printout using Iam to Printout the nationality of the chef
-            //5. Count the number of FrenchChefs.
-            //6. Replace the FrenchChef with a GermanChef
         }
 
         public static string Iam(Chef myChef) => myChef switch
@@ -72,3 +65,12 @@
         };
     }
 }
+//Exercises
+//1. Loop through dotMatrix and printout the matrix. Red slice, Green slice, Blue slice
+//2. Count the number of White Dots.
+//3. Replace the White dots with Pink dots 
+
+//4. Loop through chefMatrix and printout using Iam to Printout the nationality of the chef
+//5. Count the number of FrenchChefs.
+//6. Replace the FrenchChef with a GermanChef
+
