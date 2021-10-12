@@ -119,3 +119,4 @@ namespace UserInputPractise
 //Exercises
 //1. Look at the 5 Try methods and identify similarities. Reduce the nr of Methods using DRY
 //2. Create a TryReadDateTime(...) and ask the user for birthdate using the Try pattern
+//3. Encapsulate all the Tryxxx Methods as public members into a static class UserInput placed in a separate file
