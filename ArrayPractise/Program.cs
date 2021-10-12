@@ -38,7 +38,7 @@
 
     class Program
     {
-        DotColor[,,] dotMatrix = {{{DotColor.Red, DotColor.Red, DotColor.Red },
+        static DotColor[,,] dotMatrix = {{{DotColor.Red, DotColor.Red, DotColor.Red },
                                    {DotColor.Red, DotColor.White, DotColor.Red },
                                    {DotColor.Red, DotColor.Red, DotColor.Red }},
                                   {{DotColor.Green, DotColor.Green, DotColor.Green },
