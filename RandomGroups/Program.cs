@@ -20,10 +20,9 @@ namespace RandomGroups
             Console.WriteLine(myStudents);
         }
     }
-
-    //Sprint 1
-    //1. Properties and Methods of class StudentList
-    //2. How do I keep track of NrOfStudents
-    //3. How do I initiate students in InitiateOOP1dotNet5()
-    //4. What changes do I need to make in "Selection Sort" From BOOP_05_07 to implement Sort()
 }
+//Sprint 1
+//1. Properties and Methods of class StudentList
+//2. How do I keep track of NrOfStudents
+//3. How do I initiate students in InitiateOOP1dotNet5()
+//4. What changes do I need to make in "Selection Sort" From BOOP_05_07 to implement Sort()
